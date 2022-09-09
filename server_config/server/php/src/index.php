@@ -12,7 +12,7 @@
                 <th>Surname</th>
             </tr>
             <?php
-                $mysqli = new mysqli("db", "MYSQL_USER", "MYSQL_PASSWORD", "MY_DATABASE");
+                $mysqli = new mysqli("db", "user", "password", "appDB");
                 $result = $mysqli->query("SELECT * FROM users"); 
                 foreach ($result as $row)
                 { 
