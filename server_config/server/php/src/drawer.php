@@ -9,28 +9,18 @@ if (isset($_GET['num']))
         require_once 'figure.php';
 
         $figure = new Figure((int)$_GET['num']);
-
-        switch ($figure->color) 
-        {
-            case 0:
-                $color = 'black';
-                break;
-            case 1:
-                $color = 'green';
-                break;
-            case 2:
-                $color = 'blue';
-                break;
-            default:
-                $color = 'red';
-        }
+        $color = match($figure->color){
+            0 => 'black',
+            1 => 'green',
+            2 => 'blue',
+            default => 'red',
+        };
 
         $x = 50 + 200 * $figure->x;
         $y = 50 + 200 * $figure->y;
 
-
         echo "<svg width=$x height=$y>";
-        switch ($figure->shape_type) 
+        switch ($figure->shape_type)
         {
             case 0:
                 echo "<circle cx=", $x / 2, " cy=", $y / 2, " r=", $x / 4, " fill=$color />";
