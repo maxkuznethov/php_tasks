@@ -13,6 +13,6 @@ class Figure
         $this->shape_type = $num & 1;
         $this->color = ($num >> 1) & 3;
         $this->x = ($num >> 2) & 3;
-        $this->y = ($num >> 3) & 3;
+        $this->y = ($num >> 4) & 3;
     }
 }
