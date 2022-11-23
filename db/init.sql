@@ -23,6 +23,15 @@ CREATE TABLE IF NOT EXISTS orders (
     PRIMARY KEY (ID)
     );
 
+CREATE TABLE IF NOT EXISTS files (
+    ID INT(11) NOT NULL  AUTO_INCREMENT,
+    content LONGBLOB NOT NULL,
+    author VARCHAR(32) NOT NULL,
+    title VARCHAR(256) NOT NULL,
+    `type` VARCHAR(256) NOT NULL,
+    PRIMARY KEY (ID)
+    );
+
 INSERT INTO users (login, password)
 SELECT * FROM (SELECT 'admin', '{SHA}QL0AFWMIX8NRZTKeof9cXsvbvu8=') AS tmp
 WHERE NOT EXISTS (
